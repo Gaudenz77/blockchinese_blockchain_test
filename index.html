@@ -16,92 +16,91 @@
     <script src="./blockchain.js" defer></script>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="logo.png" alt="Logo" style="width: 30px; height: 30px" />
-          BlockchainApp
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Account</a>
-            </li>
-          </ul>
-        </div>
+     <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="logo.png" alt="Logo" style="width: 30px; height: 30px;">
+        BlockchainApp
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Account</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <!-- Main Content -->
-    <div class="container bg-primary">
-      <div class="row justify-content-center">
-        <div class="col-12 text-center">
-          <button
-            class="btn btn-info col-6 mt-5"
-            type="button"
-            onclick="fetchBitcoinValue()"
-          >
-            Get Current Bitcoin Value
-          </button>
-          <div id="bitcoinValueDisplay" class="mt-3"></div>
-          <div id="totalValueInBitcoin" class="mt-3"></div>
-        </div>
+  <!-- Main Content -->
+  <div class="container bg-primary">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <button class="btn btn-info col-6 mt-5" type="button" onclick="fetchCryptoValues()">
+          Get Current Crypto Values
+        </button>
+        <div id="cryptoValuesDisplay" class="mt-3"></div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-10 col-lg-6 mt-5">
-          <form id="createBlockForm">
-            <div class="mb-3">
-              <label for="blockData" class="form-label">Block Data:</label>
-              <textarea class="form-control" id="blockData" required></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="blockValue" class="form-label"
-                >Block Value (Currency):</label
-              >
-              <input type="text" class="form-control" id="blockValue" required />
-            </div>
-            <div class="text-center">
-              <button
-              class="btn btn-success mt-4   mb-5 p-3"
-              type="button"
-              onclick="createBlockchain()"
-            >
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-10 col-lg-6 mt-5">
+        <form id="createBlockForm">
+          <div class="mb-3">
+            <label for="blockData" class="form-label">Block Data:</label>
+            <textarea class="form-control" id="blockData" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="blockValue" class="form-label">Block Value (Currency):</label>
+            <input type="text" class="form-control" id="blockValue" required>
+          </div>
+          <div class="mb-3">
+            <label for="blockCurrency" class="form-label">Select Cryptocurrency:</label>
+            <select class="form-select" id="blockCurrency" required>
+              <option value="bitcoin">Bitcoin (BTC)</option>
+              <option value="ethereum">Ethereum (ETH)</option>
+              <option value="litecoin">Litecoin (LTC)</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+          <div class="text-center">
+            <button class="btn btn-success mt-4 mb-5 p-3" type="button" onclick="createBlockchain()">
               Create Blockchain
             </button>
-            </div>
-            
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
-     
-      <div class="card">
-        <div class="row justify-content-center ">
-          <div class="col-10">
-            <!-- Display Blockchain -->
-            <div class="table table-responsive">
-              <div id="blockchainDisplay" class="mt-3"></div>
-            </div>
+    </div>
+
+    <div class="card">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <!-- Display Blockchain -->
+          <h3 class="text-center">Bitcoin Blockchain</h3>
+          <div class="table table-responsive">
+            <div id="bitcoinBlockchainDisplay" class="mt-3"></div>
+          </div>
+          <h3 class="text-center">Ethereum Blockchain</h3>
+          <div class="table table-responsive">
+            <div id="ethereumBlockchainDisplay" class="mt-3"></div>
+          </div>
+          <h3 class="text-center">Litecoin Blockchain</h3>
+          <div class="table table-responsive">
+            <div id="litecoinBlockchainDisplay" class="mt-3"></div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
 
     <!-- Include CryptoJS via CDN -->
