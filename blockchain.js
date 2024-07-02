@@ -154,3 +154,24 @@ document.addEventListener('DOMContentLoaded', () => {
   displayBlockchain('ethereum');
   displayBlockchain('litecoin');
 });
+
+
+let myAnswer = document.getElementById('answerDiv');
+letMyFormButton = document.getElementById('myButton');
+
+const textOne = "send it?";
+const textTwo = "thanks for sending";
+
+const textIs = true;
+
+function toggleText() {
+  if(textIs) {
+    myAnswer.innerHTML = textTwo;
+  } else {
+    myAnswer.innerHTML = textOne; 
+    
+  } textIs = !textIs;   
+
+}
+
+myButton.addEventListener('click', toggleText);
