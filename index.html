@@ -16,232 +16,161 @@
     <script src="./blockchain.js" defer></script>
   </head>
   <body>
-     <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="logo.png" alt="Logo" style="width: 30px; height: 30px;">
-        BlockchainApp
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Account</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main Content -->
-  <div class="container bg-primary">
-    <div class="row justify-content-center">
-      <div class="col-12 text-center">
-        <button class="btn btn-info col-6 mt-5" type="button" onclick="fetchCryptoValues()">
-          Get Current Crypto Values
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="logo.png" alt="Logo" style="width: 30px; height: 30px;" />
+          BlockchainApp
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <div id="cryptoValuesDisplay" class="mt-3"></div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Account</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-10 col-lg-6 mt-5">
-        <form id="createBlockForm">
-          <div class="mb-3">
-            <label for="blockData" class="form-label">Block Data:</label>
-            <textarea class="form-control" id="blockData" required></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="blockValue" class="form-label">Block Value (Currency):</label>
-            <input type="text" class="form-control" id="blockValue" required>
-          </div>
-          <div class="mb-3">
-            <label for="blockCurrency" class="form-label">Select Cryptocurrency:</label>
-            <select class="form-select" id="blockCurrency" required>
-              <option value="bitcoin">Bitcoin (BTC)</option>
-              <option value="ethereum">Ethereum (ETH)</option>
-              <option value="litecoin">Litecoin (LTC)</option>
-              <!-- Add more options as needed -->
-            </select>
-          </div>
-          <div class="text-center">
-            <button class="btn btn-success mt-4 mb-5 p-3" type="button" onclick="createBlockchain()">
-              Create Blockchain
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+    </nav>
 
-    <div class="card">
+    <!-- Main Content -->
+    <div class="container bg-primary">
+      <div class="row justify-content-center">
+        <div class="col-12 text-center">
+          <button
+            class="btn btn-info col-6 mt-5"
+            type="button"
+            onclick="fetchCryptoValues()"
+          >
+            Get Current Crypto Values
+          </button>
+          <div id="cryptoValuesDisplay" class="mt-3"></div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-10 col-lg-6 mt-5">
+          <form id="createBlockForm">
+            <div class="mb-3">
+              <label for="blockData" class="form-label">Block Data:</label>
+              <textarea
+                class="form-control"
+                id="blockData"
+                required
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="blockValue" class="form-label">Block Value (Currency):</label>
+              <input type="text" class="form-control" id="blockValue" required />
+            </div>
+            <div class="mb-3">
+              <label for="blockCurrency" class="form-label">Select Cryptocurrency:</label>
+              <select class="form-select" id="blockCurrency" required>
+                <option value="bitcoin">Bitcoin (BTC)</option>
+                <option value="ethereum">Ethereum (ETH)</option>
+                <option value="litecoin">Litecoin (LTC)</option>
+                <option value="poorcoin">Poor.Coin (POC)</option>
+              </select>
+            </div>
+            <div class="text-center">
+              <button
+                class="btn btn-success mt-4 mb-5 p-3"
+                type="button"
+                onclick="createBlockchain()"
+              >
+                Create Blockchain
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Blockchain display tables -->
       <div class="row justify-content-center">
         <div class="col-10">
-          <!-- Display Blockchain -->
           <h3 class="text-center">Bitcoin Blockchain</h3>
-          <div class="table table-responsive">
+          <div class="table-responsive">
             <div id="bitcoinBlockchainDisplay" class="mt-3"></div>
           </div>
+
           <h3 class="text-center">Ethereum Blockchain</h3>
-          <div class="table table-responsive">
+          <div class="table-responsive">
             <div id="ethereumBlockchainDisplay" class="mt-3"></div>
           </div>
+
           <h3 class="text-center">Litecoin Blockchain</h3>
-          <div class="table table-responsive">
+          <div class="table-responsive">
             <div id="litecoinBlockchainDisplay" class="mt-3"></div>
+          </div>
+
+          <!-- Poor.Coin Blockchain Display -->
+          <h3 class="text-center">Poor.Coin Blockchain</h3>
+          <div class="table-responsive">
+            <div id="poorcoinBlockchainDisplay" class="mt-3"></div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Additional form and scripts -->
     <div class="card">
       <div class="row justify-content-center">
         <div class="col-6 my-3">
-          <form class="form-control my-3" action="">
+          <form class="form-control my-3">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control my-3" id="floatingInput" placeholder="name@example.com">
-              <label for="floatingInput">Email Adress</label>
+              <input
+                type="text"
+                class="form-control my-3"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput">Email Address</label>
               <div class="form-floating">
-                <input type="email" class="form-control"  id="floatingPassword" placeholder="Password">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="floatingPassword"
+                  placeholder="Password"
+                />
                 <label for="floatingPassword">Password</label>
               </div>
             </div>
-            
-            <div class="">
-              <button name="" id="myButton" class="btn btn-primary">Send?</button>
-            </div>         
+
+            <div>
+              <button id="myButton" class="btn btn-primary">Send?</button>
+            </div>
             <div id="answerDiv"></div>
           </form>
         </div>
-
       </div>
     </div>
-  </div>
-
 
     <!-- Include CryptoJS via CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-    <!--  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"
+    ></script>
+    <!-- Include Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script>
-      /*   const sha256 = CryptoJS.SHA256;
-
-    class Block {
-      constructor(index, timestamp, data, previousHash = '') {
-        this.index = index;
-        this.timestamp = timestamp;
-        this.data = data;
-        this.previousHash = previousHash;
-        this.hash = this.calculateHash();
-      }
-
-      calculateHash() {
-        return sha256(
-          this.index +
-          this.timestamp +
-          JSON.stringify(this.data) +
-          this.previousHash
-        ).toString();
-      }
-
-      static fromObject(obj) {
-        const newBlock = new Block(obj.index, obj.timestamp, obj.data, obj.previousHash);
-        newBlock.hash = obj.hash;
-        return newBlock;
-      }
-    }
-
-    class Blockchain {
-      constructor() {
-        this.chain = this.retrieveBlockchain() || [this.createGenesisBlock()];
-      }
-
-      createGenesisBlock() {
-        return new Block(0, new Date().toLocaleString(), 'Genesis Block', '0');
-      }
-
-      getLatestBlock() {
-        return this.chain[this.chain.length - 1];
-      }
-
-      addBlock(newBlock) {
-        newBlock.previousHash = this.getLatestBlock().hash;
-        newBlock.hash = newBlock.calculateHash();
-        this.chain.push(newBlock);
-        this.saveBlockchain();
-      }
-
-      saveBlockchain() {
-        localStorage.setItem('blockchain', JSON.stringify(this.chain));
-      }
-
-      retrieveBlockchain() {
-        const storedBlockchain = localStorage.getItem('blockchain');
-        return storedBlockchain ? JSON.parse(storedBlockchain).map(Block.fromObject) : null;
-      }
-
-      static fromObject(obj) {
-        const newBlockchain = new Blockchain();
-        newBlockchain.chain = obj.chain.map(Block.fromObject);
-        return newBlockchain;
-      }
-    }
-
-    const myBlockchain = new Blockchain();
-
-    function createBlockchain() {
-      const blockData = document.getElementById('blockData').value;
-      const blockValue = document.getElementById('blockValue').value;
-      const newBlock = new Block(myBlockchain.chain.length, new Date().toLocaleString(), { data: blockData, value: blockValue });
-      myBlockchain.addBlock(newBlock);
-      displayBlockchain();
-    }
-
-    function displayBlockchain() {
-      const blockchainDisplay = document.getElementById('blockchainDisplay');
-      blockchainDisplay.innerHTML = ''; // Clear previous display.
-
-      // Create a table element with Bootstrap classes
-      const table = document.createElement('table');
-      table.className = 'table table-striped-columns';
-
-      // Create table header
-      const headerRow = table.insertRow(0);
-      const headers = ['Block Number', 'Timestamp', 'Data', 'Hash', 'Previous Hash'];
-      headers.forEach(headerText => {
-        const header = document.createElement('th');
-        header.textContent = headerText;
-        headerRow.appendChild(header);
-      });
-
-      // Populate the table with blockchain data
-      for (const block of myBlockchain.chain) {
-        const row = table.insertRow(-1);
-        const rowData = [block.index, block.timestamp, JSON.stringify(block.data), block.hash, block.previousHash];
-
-        rowData.forEach((data, index) => {
-          const cell = row.insertCell(index);
-          cell.textContent = data;
-        });
-      }
-
-      // Append the table to the display element
-      blockchainDisplay.appendChild(table);
-    }
-
-    // Display the blockchain on page load
-    displayBlockchain(); */
-    </script>
   </body>
 </html>
