@@ -130,3 +130,4 @@ window.onload = () => {
   displayBlockchain('litecoin');
   displayBlockchain('poorcoin');
 };
+
