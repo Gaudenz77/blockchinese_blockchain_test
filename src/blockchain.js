@@ -99,7 +99,7 @@ function displayBlockchain(currency) {
   blockchainDisplay.innerHTML = ''; // Clear previous display
 
   const table = document.createElement('table');
-  table.className = 'table table-striped-columns';
+  table.className = 'table table-striped-columns myTable';
 
   const headerRow = table.insertRow(0);
   const headers = ['Block Number', 'Timestamp', 'Data', 'Hash', 'Previous Hash'];
@@ -130,4 +130,15 @@ window.onload = () => {
   displayBlockchain('litecoin');
   displayBlockchain('poorcoin');
 };
+
+/* --------------------- Ither stuff */
+  document.addEventListener('DOMContentLoaded', () => {
+  const themeSelect = document.getElementById('themeSelect');
+
+  // Listen for dropdown change
+  themeSelect.addEventListener('change', function () {
+    const selectedTheme = this.value;
+    document.documentElement.setAttribute('data-theme', selectedTheme);
+  });
+});
 

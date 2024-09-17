@@ -1,0 +1,16 @@
+.myTable {
+    /* color:#333 */
+}
+
+.myTable .cyberpunk  {
+ color:red;
+}
+
+td {
+    border-color: #ebebeb;
+    border-width: 3px;
+    border-style: dotted;
+    padding: 1rem 2rem;
+    /* color:#333; */
+}
+

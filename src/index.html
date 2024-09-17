@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="cyberpunk">
+<html lang="en" data-theme="">
 
   <head>
     <meta charset="UTF-8" />
@@ -9,27 +9,31 @@
     />
     <title>Blockchain App</title>
     <script src="./blockchain.js" defer></script>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="./output.css" rel="stylesheet">
     <link href="./style.css" rel="stylesheet">
   </head>
-  <body class="bg-red-200">
+  <body class="">
     <!-- Navbar -->
-    <nav class="bg-gray-900">
-      <button onclick="document.documentElement.setAttribute('data-theme', 'dark')">Dark Mode</button>
-<button onclick="document.documentElement.setAttribute('data-theme', 'light')">Light Mode</button>
-<button onclick="document.documentElement.setAttribute('data-theme', 'cyberpunk')">Cyberpunk Mode</button>
-
+    <nav class="bg-gray-900 pt-4">
       <div class="container mx-auto flex items-center justify-between p-4">
         <a href="#" class="text-white flex items-center">
-          <img src="logo.png" alt="Logo" class="w-8 h-8 mr-2" />
-          <span class="font-bold">BlockchainApp</span>
+          <img src="/src/assets/img/KDS_Logo_01_FB.png" alt="Logo" class="w-8 h-8 mr-2" />
+          <span class="font-bold text-3xl">POORCOIN BASED V 1.0</span>
         </a>
         <div>
-          <ul class="flex space-x-4">
+          <ul class="flex space-x-4 mt-5">
             <li><a href="#" class="text-white">Home</a></li>
             <li><a href="#" class="text-white">Profile</a></li>
             <li><a href="#" class="text-white">Account</a></li>
+            <li>
+              <select id="themeSelect" class="select select-info relative bottom-[0.8rem]">
+                <option value="dark">Dark Mode</option>
+                <option value="light">Light Mode</option>
+                <option value="cyberpunk">Cyberpunk Mode</option>
+                <option value="luxury">Luxury Mode</option>
+                <option value="cupcake">Cupcake Mode</option>
+              </select>
+            </li>
           </ul>
         </div>
       </div>
@@ -81,7 +85,7 @@
         </div>
 
         <!-- Central Column: Blockchain Display Tables -->
-        <div class="lg:w-2/3 w-full mt-6 lg:mt-0 bg-white p-4 rounded shadow-lg">
+        <div class="lg:w-2/3 w-full mt-6 lg:mt-0 p-4 rounded shadow-lg">
           <h3 class="text-xl font-bold text-center mb-4">Bitcoin Blockchain</h3>
           <div class="overflow-x-auto">
             <div id="bitcoinBlockchainDisplay" class="mt-3"></div>
@@ -89,7 +93,7 @@
 
           <h3 class="text-xl font-bold text-center mt-6 mb-4">Ethereum Blockchain</h3>
           <div class="overflow-x-auto">
-            <div id="ethereumBlockchainDisplay" class="mt-3"></div>
+            <div id="ethereumBlockchainDisplay" class="mt-3 "></div>
           </div>
 
           <h3 class="text-xl font-bold text-center mt-6 mb-4">Litecoin Blockchain</h3>
