@@ -48,20 +48,11 @@
           <form id="createBlockForm">
             <div class="mb-3">
               <label for="blockData" class="block text-sm font-medium text-gray-700">Block Data:</label>
-              <textarea
-                class="w-full border border-gray-300 rounded-lg p-2"
-                id="blockData"
-                required
-              ></textarea>
+              <textarea class="w-full border border-gray-300 rounded-lg p-2" id="blockData" required></textarea>
             </div>
             <div class="mb-3">
               <label for="blockValue" class="block text-sm font-medium text-gray-700">Block Value (Currency):</label>
-              <input
-                type="text"
-                class="w-full border border-gray-300 rounded-lg p-2"
-                id="blockValue"
-                required
-              />
+              <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="blockValue" required />
             </div>
             <div class="mb-3">
               <label for="blockCurrency" class="block text-sm font-medium text-gray-700">Select Cryptocurrency:</label>
@@ -73,15 +64,16 @@
               </select>
             </div>
             <div class="text-center">
-              <button
-                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4"
-                type="button"
-                onclick="createBlockchain()"
-              >
-                Create Blockchain
+              <!-- Buy and Sell buttons -->
+              <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4" type="button" onclick="createBlockchain('buy')">
+                Buy
+              </button>
+              <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4 ml-2" type="button" onclick="createBlockchain('sell')">
+                Sell
               </button>
             </div>
           </form>
+          
         </div>
 
         <!-- Central Column: Blockchain Display Tables -->

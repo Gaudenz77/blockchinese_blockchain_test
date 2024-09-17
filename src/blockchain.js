@@ -78,10 +78,15 @@ const blockchains = {
 };
 
 // Function to create a block for the selected cryptocurrency
-function createBlockchain() {
+function createBlockchain(action) {
   const blockData = document.getElementById('blockData').value;
-  const blockValue = document.getElementById('blockValue').value;
+  let blockValue = parseFloat(document.getElementById('blockValue').value);
   const blockCurrency = document.getElementById('blockCurrency').value;
+
+  // Modify the block value based on whether it's a buy or sell action
+  if (action === 'sell') {
+    blockValue = -Math.abs(blockValue);  // Ensure the value is negative for sell
+  }
 
   const newBlock = new Block(
     blockchains[blockCurrency].chain.length, 
@@ -91,7 +96,11 @@ function createBlockchain() {
   
   blockchains[blockCurrency].addBlock(newBlock);
   displayBlockchain(blockCurrency);
+
+  // Clear the form after submission
+  document.getElementById('createBlockForm').reset();
 }
+
 
 // Function to display the blockchain for the selected cryptocurrency
 function displayBlockchain(currency) {
@@ -110,9 +119,16 @@ function displayBlockchain(currency) {
     headerRow.appendChild(header);
   });
 
+  let totalValue = 0;
+
   for (const block of blockchains[currency].chain) {
     const row = table.insertRow(-1);
     const rowData = [block.index, block.timestamp, JSON.stringify(block.data), block.hash, block.previousHash];
+
+    // Summing the block values if the block has a value field
+    if (block.data && block.data.value) {
+      totalValue += parseFloat(block.data.value) || 0;
+    }
 
     rowData.forEach((data, index) => {
       const cell = row.insertCell(index);
@@ -120,8 +136,15 @@ function displayBlockchain(currency) {
     });
   }
 
+  // Adding a row to display the total value of the blockchain
+  const totalRow = table.insertRow(-1);
+  const totalCell = totalRow.insertCell(0);
+  totalCell.colSpan = 5;
+  totalCell.textContent = `Total Value: ${totalValue} ${currency.toUpperCase()}`;
+
   blockchainDisplay.appendChild(table);
 }
+
 
 // Display all blockchains on page load
 window.onload = () => {
