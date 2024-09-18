@@ -89,16 +89,17 @@ function createBlockchain(action) {
   }
 
   const newBlock = new Block(
-    blockchains[blockCurrency].chain.length, 
-    new Date().toLocaleString(), 
+    blockchains[blockCurrency].chain.length,
+    new Date().toLocaleString(),
     { data: blockData, value: blockValue }
   );
-  
+
   blockchains[blockCurrency].addBlock(newBlock);
   displayBlockchain(blockCurrency);
 
   // Clear the form after submission
   document.getElementById('createBlockForm').reset();
+  
 }
 
 
@@ -112,7 +113,7 @@ function displayBlockchain(currency) {
 
   const headerRow = table.insertRow(0);
   const headers = ['Block Number', 'Timestamp', 'Data', 'Hash', 'Previous Hash'];
-  
+
   headers.forEach(headerText => {
     const header = document.createElement('th');
     header.textContent = headerText;
@@ -155,7 +156,7 @@ window.onload = () => {
 };
 
 /* --------------------- Ither stuff */
-  document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const themeSelect = document.getElementById('themeSelect');
 
   // Listen for dropdown change
